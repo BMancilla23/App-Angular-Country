@@ -1,0 +1,8 @@
+<!-- (keyup.enter)="emitValue(txtInput.value)" -->
+<input
+  type="search"
+  [placeholder]="placeholder"
+  class="input-group w-1/2"
+  [value]="initialValue"
+  (keyup)="onKeyPress(txtInput.value)"
+  #txtInput />
