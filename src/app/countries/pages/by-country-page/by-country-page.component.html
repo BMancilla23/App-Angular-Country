@@ -1,0 +1,19 @@
+<div class="flex flex-col gap-y-4">
+  <p class="text-2xl">Por país</p>
+  <hr />
+
+  <div>
+    <!-- Búsquedas -->
+    <div>
+      <shared-search-box
+        placeholder="Buscar por país..."
+        (onDebounce)="searchByCountry($event)"
+        [initialValue]="initialValue" />
+    </div>
+  </div>
+
+  <div>
+    <hr />
+    <countries-table [countries]="countries" />
+  </div>
+</div>

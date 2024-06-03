@@ -1,0 +1,24 @@
+<div class="flex flex-col gap-y-4">
+  <p class="text-2xl">Por región</p>
+  <hr />
+
+  <div>
+    <!-- Búsquedas -->
+    <div class="flex gap-x-4">
+      <button
+        class="border border-slate-950 py-2 px-4 text-slate-950 rounded-md hover:text-white hover:bg-slate-950"
+        (click)="searchByRegion(region)"
+        *ngFor="let region of regions"
+        [ngClass]="{
+          'btn-primary': selectedRegion === region
+        }">
+        {{ region }}
+      </button>
+    </div>
+  </div>
+
+  <div>
+    <hr />
+    <countries-table [countries]="countries" />
+  </div>
+</div>

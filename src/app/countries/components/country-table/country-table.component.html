@@ -1,0 +1,52 @@
+<div
+  *ngIf="countries.length === 0; else table"
+  class="p-4 mb-4 text-sm text-yellow-800 rounded-lg bg-yellow-50"
+  role="alert">
+  <span class="font-medium">No hay paises que mostrar</span>
+</div>
+
+<ng-template #table>
+  <!--   <ul>
+    <li *ngFor="let country of countries">
+      {{ country.capital }} - {{ country.population }}
+    </li>
+  </ul> -->
+
+  <table class="w-full text-sm text-left rtl:text-right text-gray-500">
+    <thead class="text-xs text-gray-700 uppercase bg-gray-50">
+      <tr>
+        <th class="px-6 py-3">#</th>
+        <th class="px-6 py-3">Icon</th>
+        <th class="px-6 py-3">Bandera</th>
+        <th class="px-6 py-3">Nombre</th>
+        <th class="px-6 py-3">Capital</th>
+        <th class="px-6 py-3">Población</th>
+        <th class="px-6 py-3"></th>
+      </tr>
+    </thead>
+    <tbody class="">
+      <tr
+        *ngFor="let country of countries; let i = index"
+        class="bg-white border-b gray-700 hover:bg-gray-50">
+        <td class="px-6 py-4">{{ i + 1 }}</td>
+        <td class="px-6 py-4">{{ country.flag }}</td>
+        <td class="px-6 py-4">
+          <img
+            class="w-6 h-auto"
+            [src]="country.flags.svg"
+            [alt]="country.name.common" />
+        </td>
+        <td class="px-6 py-4">{{ country.name.common }}</td>
+        <td class="px-6 py-4">{{ country.capital }}</td>
+        <td class="px-6 py-4">{{ country.population | number }}</td>
+        <td class="px-6 py-4">
+          <a
+            class="hover:text-blue-600"
+            [routerLink]="['/countries/by', country.cca3]"
+            >Ver más</a
+          >
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</ng-template>
